@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body {
+		margin: 0px;
+	}
+	
+	table {
+		border-collapse: collapse;
+	}
+	
+	table, th, td {
+		border: 1px solid black
+	}
+	
+	th {
+		background-color: gray;
+		color: white;
+	}
+	
+	tr:nth-child(even){background-color: #ddd;}
+	
+	tr:hover {background-color: red;}
+	
+	button {
+		float: left;
+	}
+	
+	button.on {
+		background-color: black;
+		color: white;
+	}
+	
+	button.off {
+		background-color: #e7e7e7;
+		color: black;
+	}	
+</style>
+</head>
+
+
+<body>
+
+
+<canvas id="canvas">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script src="canvas.js"></script>
+
+<!-- render the buttons on top of the canvas without pushing the canvas down an throwing off the mouse inputs -->
+<div style="position: absolute; top: 0px; left: 0px; width: 100%; background-color: gray;">
+	<button id="vertex-button" class="off" type="button" style="" onclick="toggleVertex()">Vertex</button>
+	<button id="edge-button" class="off" type="button" style="" onclick="toggleEdge()">Edge</button>
+	<button id="run-button" class="off" type="button" style="" onclick="run()">Calculate Max Flow</button>
+	<button id="clear-button" class="off" type="button" style="float: right;" onclick="cls()">Clear</button>
+	<button id="remove-vertex-button" class="off" type="button" style="float: right;" onclick="removeVertex()">Remove Vertex</button>
+</div>
+
+<table id="data" style="position: absolute; top: 30px; left: 2px">
+	<tr>
+		<th>Edge</th>
+		<th>Capacity</th>
+	</tr>
+</table>
+
+<script>init();</script>
+
+<!-- Network Flow script -->
+<script src="networkflow.js"></script>
+
+</body>
+</html>
